@@ -34,3 +34,27 @@ nav a:hover {
     padding: 20px;
     text-align: center;
 }
+
+.image-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-list li {
+    margin: 10px;
+}
+
+.image-list img {
+    max-width: 200px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    border: 1px solid #ddd; /* Opcional: borda ao redor das imagens */
+    border-radius: 5px; /* Opcional: bordas arredondadas */
+    transition: transform 0.3s; /* Efeito de transição */
+}
+
+.image-list img:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawings - Meu Portfólio</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Meu Portfólio</h1>
+    </header>
+    <nav class="menu">
+        <a href="/">Home</a>
+        <a href="/resume">Resume</a>
+        <a href="/projects">Projects</a>
+        <a href="/posts">Posts</a>
+        <a href="/drawings">Drawings</a>
+    </nav>
+    <div class="content">
+        <h2>Meus Desenhos</h2>
+        <ul class="image-list" id="imageList"></ul>
+    </div>
+    <script>
+        // Fetch images dynamically from the server
+        fetch('/api/images')
+            .then(response => response.json())
+            .then(images => {
+                const imageList = document.getElementById('imageList');
+                images.forEach(image => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<img src="/images/${image}" alt="Desenho">`;
+                    imageList.appendChild(li);
+                });
+            })
+            .catch(err => console.error('Error fetching images:', err));
+    </script>
+</body>
+</html>
